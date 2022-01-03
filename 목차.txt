@@ -1,2 +1,0 @@
-1 PyTorch 기초
-01 텐서 조작하기1 (참고:https://www.boostcourse.org/ai214/lecture/42282?isDesc=false, https://wikidocs.net/52460)
