@@ -6,7 +6,7 @@
 
 ## 미니 배치와 배치크기(Mini Batch and Batch Size)
 
-![image-20220105204218034](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220105204218034.png)
+![image-20220105204218034](images/../image-20220105204218034.png)
 
 미니 배치 학습을 하게되면 미니 배치만큼만 가져가서 미니 배치에 대한 대한 비용(cost)를 계산하고, 경사 하강법을 수행합니다. 그리고 다음 미니 배치를 가져가서 경사 하강법을 수행하고 마지막 미니 배치까지 이를 반복합니다. 이렇게 전체 데이터에 대한 학습이 1회 끝나면 1 에포크(Epoch)가 끝나게 됩니다.
 
@@ -23,7 +23,7 @@
 
 ## 이터레이션(Iteration)
 
-![image-20220105205151390](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220105205151390.png)
+![image-20220105205151390](../images/image-20220105205151390.png)
 
 * Iteration: 한번의 epoch내에서 이루어지는 매개변수인 가중치 W와 b의 업데이트 횟수
 
