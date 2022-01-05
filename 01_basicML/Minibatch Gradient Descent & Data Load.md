@@ -6,7 +6,7 @@
 
 ## 미니 배치와 배치크기(Mini Batch and Batch Size)
 
-![image-20220105204218034](images/../image-20220105204218034.png)
+![image-20220105204218034](../images/image-20220105204218034.png)
 
 미니 배치 학습을 하게되면 미니 배치만큼만 가져가서 미니 배치에 대한 대한 비용(cost)를 계산하고, 경사 하강법을 수행합니다. 그리고 다음 미니 배치를 가져가서 경사 하강법을 수행하고 마지막 미니 배치까지 이를 반복합니다. 이렇게 전체 데이터에 대한 학습이 1회 끝나면 1 에포크(Epoch)가 끝나게 됩니다.
 
@@ -107,7 +107,7 @@ for epoch in range(nb_epochs + 1):
 
 -> epoch수를 20에서 100으로 늘려도 cost의 대체적 값이 크게 감소하지 않았는데 그렇다는 것은 data양이 적어서 그런것인가..? 이걸 알기위해 validation dataset이 필요한 건가..?
 
-![image-20220105212028699](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220105212028699.png)
+![image-20220105212028699](../images/image-20220105212028699.png)
 
 
 
