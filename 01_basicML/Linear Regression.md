@@ -282,3 +282,10 @@ prediction = model(x_train)
 
 
 
+
+
+### Minibatch Gradient Descent(미니배치 경사하강법)
+
+많은 양의 데이터를 한번에 학습시키는 것은 불가능 -> 일부분의 데이터로만 학습
+
+* 전체 데이터를 균일하게 나눠서 학습하자!
