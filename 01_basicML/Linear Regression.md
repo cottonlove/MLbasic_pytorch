@@ -50,7 +50,7 @@ $$
 
 > 기울기(W)가 지나치게 크면 실제값과 예측값의 오차가 커지고, 기울기가 지나치게 작아도 실제값과 예측값의 오차가 커집니다. 사실 b 또한 마찬가지인데 b가 지나치게 크거나 작으면 오차가 커집니다.
 
-![image-20220105141430483](https://github.com/cottonlove/MLbasic_pytorch/blob/main/images/image-20220105141430483.png)
+![image-20220105141430483](../images/image-20220105141430483.png)
 
 (설명의 편의를 위해 편향 b가 없이 단순히 가중치 W만을 사용한 H(x)=Wx라는 가설을 가지고, 경사 하강법을 설명)
 
@@ -60,7 +60,7 @@ $$
 
 기계는 **임의의 초기값 W값을 정한 뒤에, 맨 아래의 볼록한 부분을 향해 점차 W의 값을 수정**해나갑니다. 위의 그림은 W값이 점차 수정	되는 과정을 보여줍니다. 그리고 이를 가능하게 하는 것이 경사 하강법(Gradient Descent)
 
-![image-20220105141651768](https://github.com/cottonlove/MLbasic_pytorch/blob/main/images/image-20220105141651768.png)
+![image-20220105141651768](../images/image-20220105141651768.png)
 
 ​	즉, **cost가 최소화가 되는 지점은 접선의 기울기가 0이 되는 지점**이며, 또한 **미분값이 0**이 되는 지점입니다. 경사 하강법의 아이디어는 **비용 함수(Cost function)를 미분하여 현재 W에서의 접선의 기울기를 구하고, 접선의 기울기가 낮은 방향으로 W의 값을 변경하는 작업을 반복**하는 것에 있습니다. 이 반복 작업에는 **현재 W에 접선의 기울기를 구해 특정 숫자 α를 곱한 값을 빼서 새로운 W로 사용하는 식이 사용**됩니다. 즉, 아래의 수식은 접선의 기울기가 음수거나, 양수일 때 모두 **접선의 기울기가 0인 방향으로 W의 값을 조정**합니다.
 $$
@@ -115,7 +115,7 @@ $$
 
 예를 들어, x의 개수가 3개인 경우,
 
-![image-20220105164515369](https://github.com/cottonlove/MLbasic_pytorch/blob/main/images/image-20220105164515369.png)
+![image-20220105164515369](../images/image-20220105164515369.png)
 
 ```
 # 훈련 데이터
@@ -136,7 +136,7 @@ b = torch.zeros(1, requires_grad=True)
 
 이와 같이, 비효율적입니다. 이를 해결하기 위해 행렬 곱셈 연산(또는 벡터의 내적)을 사용합니다.
 
-![image-20220105164659454](https://github.com/cottonlove/MLbasic_pytorch/blob/main/images/image-20220105164659454.png)
+![image-20220105164659454](../images/image-20220105164659454.png)
 
 
 
@@ -150,11 +150,11 @@ b = torch.zeros(1, requires_grad=True)
 
 이는 독립 변수 x들의 수가 (샘플의 수 × 특성의 수) = 15개임을 의미합니다. 독립 변수 x들을 (샘플의 수 × 특성의 수)의 크기를 가지는 하나의 행렬로 표현해봅시다. 그리고 이 행렬을 X라고 하겠습니다.
 
-![image-20220105165012187](https://github.com/cottonlove/MLbasic_pytorch/blob/main/images/image-20220105165012187.png)
+![image-20220105165012187](../images/image-20220105165012187.png)
 
 그리고 여기에 가중치 w1,w2,w3을 원소로 하는 벡터를 W라하고 곱한 후 샘플 수만큼의 차원을 가지는 편향 벡터 B라하고 더한다 .
 
-![image-20220105165235963](https://github.com/cottonlove/MLbasic_pytorch/blob/main/images/image-20220105165235963.png)
+![image-20220105165235963](../images/image-20220105165235963.png)
 
 ```python
 #행렬연산으로 할 경우, 훈련데이터 또한 행렬로 선언
