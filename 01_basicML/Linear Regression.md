@@ -278,7 +278,7 @@ model = LinearRegressionModel()
 prediction = model(x_train)
 ```
 
-모델을 클래스로 구현한 코드는 여기를 참조: 
+모델을 클래스로 구현한 코드는 여기를 참조: https://github.com/cottonlove/MLbasic_pytorch/blob/main/01_basicML/linear%20regression.py
 
 
 
