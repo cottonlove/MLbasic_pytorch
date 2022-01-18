@@ -81,7 +81,7 @@ $$
 > > * 시작할 때 optimizer 정의
 > > * optimizer.zero_grad()로 gradient를 0으로 초기화
 > > * cost.backward()로 비용 함수를 미분하여 gradient계산
-> > * optimizer.steop()으로 W와 b를 업데이트. gradient descent
+> > * optimizer.step()으로 W와 b를 업데이트. gradient descent
 > >
 > > ```python
 > > #optimizer 설정
