@@ -63,19 +63,19 @@ cost(W,b)=1n∑i=1n[y(i)−H(x(i))]2
 
 다음은 y=0.5에 대칭하는 두 개의 로그 함수 그래프입니다.
 
-![img](https://wikidocs.net/images/page/57805/%EA%B7%B8%EB%9E%98%ED%94%84.PNG)
+![img](../images/%EA%B7%B8%EB%9E%98%ED%94%84.PNG)
 
 실제값이 1일 때의 그래프를 주황색 선으로 표현하였으며, 실제값이 0일 때의 그래프를 초록색 선으로 표현하였습니다. 실제값이 1이라고 해봅시다. 이 경우, 예측값인 H(x)의 값이 1이면 오차가 0이므로 당연히 cost는 0이 됩니다. 반면, H(x)가 0으로 수렴하면 cost는 무한대로 발산합니다. 실제값이 0인 경우는 그 반대로 이해하면 됩니다. 이 두 개의 로그 함수를 식으로 표현하면 다음과 같습니다.
 
-![image-20220125145536312](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125145536312.png)
+![image-20220125145536312](../images/image-20220125145536312.png)
 
 
 
-![image-20220125145643302](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125145643302.png)
+![image-20220125145643302](../images/image-20220125145643302.png)
 
 선형 회귀에서는 모든 오차의 평균을 구해 평균 제곱 오차를 사용했었습니다. 마찬가지로 여기에서도 모든 오차의 평균을 구합니다.
 
-![image-20220125145739274](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125145739274.png)
+![image-20220125145739274](../images/image-20220125145739274.png)
 
 
 
@@ -87,7 +87,7 @@ cost(W,b)=1n∑i=1n[y(i)−H(x(i))]2
 
 
 
-![image-20220125143930384](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125143930384.png)
+![image-20220125143930384](../images/image-20220125143930384.png)
 
 
 
