@@ -1,6 +1,7 @@
 #import
 import numpy as np
 import torch
+from typing_extensions import Concatenate
 
 #numpy review
 #1D Array with Numpy (Vector)
@@ -111,8 +112,8 @@ t = torch.FloatTensor([[1, 2], [3, 4]])
 print(t)
 print(t.sum()) # 단순히 원소 전체의 덧셈을 수행 #tensor(10.)
 print(t.sum(dim=0)) # 행을 제거 #tensor([4., 6.])
-print(t.sum(dim=1)) # 열을 제거 #tensor([3., 7.])
-print(t.sum(dim=-1)) # 열을 제거 #tensor([3., 7.])
+print(t.sum(dim=1)) # 열을 제거 #tensor([[3.], [7.]])
+print(t.sum(dim=-1)) # 열을 제거 #tensor([[3.], [7.]])
 
 #5. Max and Argmax
 '''Max: returns maximum value of element
@@ -120,27 +121,27 @@ Argmax: returns index of element which has maximum value'''
 
 t = torch.FloatTensor([[1, 2], [3, 4]])
 print(t)
-print(t.max()) # Returns one value: max
+print(t.max()) # Returns one value: max tensor(4.)
 
 print(t.max(dim=0)) #remove row Returns two values: max and argmax
 #torch.return_types.max(values=tensor([3., 4.]),indices=tensor([1, 1]))
 
 #To get only max or aragmax, use indexing
-print('Max: ', t.max(dim=0)[0]) #Max: tensor([3., 4.]
+print('Max: ', t.max(dim=0)[0]) #Max: tensor([3., 4.])
 print('Argmax: ', t.max(dim=0)[1]) #Argmax:  tensor([1, 1])
 
 print(t.max(dim=1)) #torch.return_types.max(values=tensor([2., 4.]),indices=tensor([1, 1]))
 print(t.max(dim=-1)) #torch.return_types.max(values=tensor([2., 4.]),indices=tensor([1, 1]))
 
-from typing_extensions import Concatenate
-#import
-import numpy as np
-import torch
+# from typing_extensions import Concatenate
+# #import
+# import numpy as np
+# import torch
 
 '''view(), squeeze(), and unsqueeze() adjust their shape and dimension 
 while keeping the number of elements'''
 
-#5.View = Reshape(Numpy)
+#6.View = Reshape(Numpy)
 '''*** Very important ****
 Resize(reshape) the tensor while keeping the number of elements'''
 t = np.array([[[0, 1, 2],
@@ -160,16 +161,16 @@ print(ft.view([-1, 3]).shape) #torch.Size([4, 3])
 print(ft.view([-1, 1, 3])) #tensor([[[ 0.,  1.,  2.]], [[ 3.,  4.,  5.]], [[ 6.,  7.,  8.]],[[ 9., 10., 11.]]])
 print(ft.view([-1, 1, 3]).shape) #torch.Size([4, 1, 3])
 
-#6. Squeeze
+#7. Squeeze
 '''Remove dimension which is 1'''
 ft = torch.FloatTensor([[0], [1], [2]])
 print(ft)
-print(ft.shape) #torch.Size([3, 1]
+print(ft.shape) #torch.Size([3, 1])
 
 print(ft.squeeze()) #remove 2th dimension which is 1. -> tensor([0., 1., 2.])
 print(ft.squeeze().shape) #torch.Size([3])
 
-#7. Unsqueeze
+#8. Unsqueeze
 '''특정 위치에 1인 차원을 추가한다'''
 ft = torch.Tensor([0, 1, 2])
 print(ft.shape) #(3,) torch.Size([3])
@@ -191,7 +192,7 @@ print(ft.unsqueeze(1).shape) #torch.Size([3, 1])
 print(ft.unsqueeze(-1)) #tensor([[0.],[1.],[2.]])
 print(ft.unsqueeze(-1).shape) #torch.Size([3, 1])
 
-#8. Type Casting
+#9. Type Casting
 '''Convert data type'''
 lt = torch.LongTensor([1, 2, 3, 4])
 print(lt) #tensor([1, 2, 3, 4])
@@ -204,7 +205,7 @@ print(bt) #tensor([1, 0, 0, 1], dtype=torch.uint8)
 print(bt.long()) #tensor([1, 0, 0, 1])
 print(bt.float()) #tensor([1., 0., 0., 1.])
 
-#9. Concatenate
+#10. Concatenate
 '''두 텐서를 연결. torch.cat([ ]). 어느 차원을 늘릴 것인지를 인자로 '''
 '''딥 러닝에서는 주로 모델의 입력 또는 중간 연산에서 두 개의 텐서를 연결하는 경우가 많습니다. 
 두 텐서를 연결해서 입력으로 사용하는 것은 두 가지의 정보를 모두 사용한다는 의미를 가지고 있습니다.'''
@@ -214,7 +215,7 @@ y = torch.FloatTensor([[5, 6], [7, 8]]) #|y| = (2,2)
 print(torch.cat([x, y], dim=0)) #(4,2). tensor([[1., 2.], [3., 4.],[5., 6.],[7., 8.]])
 print(torch.cat([x, y], dim=1)) #(2,4). tensor([[1., 2., 5., 6.],[3., 4., 7., 8.]])
 
-#10. Stacking
+#11. Stacking
 '''연결(concatenate)을 하는 또 다른 방법
 연결을 하는 것보다 스택킹이 더 편리할 때가 있는데, 이는 스택킹이 많은 연산을 포함하고 있기때문'''
 x = torch.FloatTensor([1, 4]) #|x|=|y|=|z|=(2,)
@@ -229,14 +230,28 @@ print(torch.cat([x.unsqueeze(0), y.unsqueeze(0), z.unsqueeze(0)], dim=0))
 print(torch.stack([x, y, z], dim=1)) #두번째 차원이 증가하도록 쌓으라는 의미
 #[[1],[4]], [[2],[5]], [[3],[6]] -> tensor([[1., 2., 3.],[4., 5., 6.]])
 
-#11. One and Zeros
+
+
+'''
+torch.cat() vs torch.stack()
+
+torch.cat()은 주어진 차원을 기준으로 주어진 텐서들을 붙임(concatenate)
+torch.stack()은 새로운 차원으로 주어진 텐서들을 붙입니다.
+따라서, (3, 4)의 크기(shape)를 갖는 2개의 텐서 A와 B를 붙이는 경우,
+torch.cat([A, B], dim=0)의 결과는 (6, 4)의 크기(shape)를 갖고,
+torch.stack([A, B], dim=0)의 결과는 (2, 3, 4)의 크기를 가짐.
+'''
+
+
+
+#12. One and Zeros
 '''0으로 채워진 텐서와 1로 채워진 텐서
 동일한 크기(shape)지만 0/1으로만 값이 채워진 텐서를 생성'''
 x = torch.FloatTensor([[0, 1, 2], [2, 1, 0]]) #|x| = (2,3)
 print(torch.ones_like(x)) #tensor([[1., 1., 1.], [1., 1., 1.]])
 print(torch.zeros_like(x)) #tensor([[0., 0., 0.],[0., 0., 0.]])
 
-#12. In-place Operation (덮어쓰기 연산)
+#13. In-place Operation (덮어쓰기 연산)
 '''_붙임. 메모리에 새로 선언하지 않고 기존 tensor에 저장'''
 x = torch.FloatTensor([[1, 2], [3, 4]]) 
 print(x.mul(2.)) #tensor([[2., 4.],[6., 8.]])
