@@ -6,7 +6,7 @@
 
 E.g. 시험 성적에 따라 합격, 불합격이 기재된 데이터 -> 시험 성적을(x) 보고 합격,불합격(y) 예측
 
-![image-20220125144436337](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125144436337.png)
+![image-20220125144436337](../images/image-20220125144436337.png)
 
 이러한 점들을 표현하는 그래프는 **알파벳의 S자 형태로 표현**됩니다. **이러한 x와 y의 관계를 표현**하기 위해서는 Wx+b와 같은 직선 함수가 아니라 S자 형태로 표현할 수 있는 함수가 필요합니다. 이런 문제에 **직선(선형 회귀)을 사용할 경우 분류 작업이 잘 동작하지 않습니다.**
 
@@ -16,7 +16,7 @@ E.g. 시험 성적에 따라 합격, 불합격이 기재된 데이터 -> 시험 
 
 ### 시그모이드 함수
 
-![image-20220125145021156](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125145021156.png)
+![image-20220125145021156](../images/image-20220125145021156.png)
 
 시그모이드 함수는 입력값이 한없이 커지면 1에 수렴하고, 입력값이 한없이 작아지면 0에 수렴합니다. **시그모이드 함수의 출력값은 0과 1 사이의 값을 가지는데** 이 특성을 이용하여 분류 작업에 사용.
 
@@ -28,9 +28,9 @@ E.g. 시험 성적에 따라 합격, 불합격이 기재된 데이터 -> 시험 
 
 ### Hypothesis (가설)
 
-![image-20220125143802212](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125143802212.png)
+![image-20220125143802212](../images/image-20220125143802212.png)
 
-![image-20220125144636311](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125144636311.png)
+![image-20220125144636311](../images/image-20220125144636311.png)
 
 * sigmoid function: 1/1+e^(-x)
 * H(X) = P (y=1 ; W) = 1- P(y=0 ; W)
@@ -41,7 +41,7 @@ E.g. 시험 성적에 따라 합격, 불합격이 기재된 데이터 -> 시험 
 
 
 
-![image-20220125143908097](C:\Users\dbw21\AppData\Roaming\Typora\typora-user-images\image-20220125143908097.png)
+![image-20220125143908097](../images/image-20220125143908097.png)
 
 
 
@@ -55,7 +55,7 @@ cost(W,b)=1n∑i=1n[y(i)−H(x(i))]2
 
 위의 비용 함수 수식에서 가설은 이제 H(x)=Wx+b가 아니라 H(x)=sigmoid(Wx+b)입니다. 그리고 이 비용 함수를 미분하면 선형 회귀때와 달리 다음의 그림과 유사한 심한 비볼록(non-convex) 형태의 그래프가 나옵니다.
 
-![img](https://wikidocs.net/images/page/22881/%EB%A1%9C%EC%BB%AC%EB%AF%B8%EB%8B%88%EB%A9%88.PNG)
+![img](../images/%EB%A1%9C%EC%BB%AC%EB%AF%B8%EB%8B%88%EB%A9%88.PNG)
 
 위와 같은 그래프에 경사 하강법을 사용할 경우의 문제점은 경사 하강법이 오차가 최소값이 되는 구간에 도착했다고 판단한 그 구간이 실제 오차가 완전히 최소값이 되는 구간이 아닐 수 있다는 점입니다. 이를 전체 함수에 걸쳐 최소값인 글로벌 미니멈(Global Minimum)이 아닌 특정 구역에서의 최소값인 로컬 미니멈(Local Minimum)에 도달했다고 합니다. 이는 cost가 최소가 되는 가중치 W를 찾는다는 비용 함수의 목적에 맞지 않습니다.
 
