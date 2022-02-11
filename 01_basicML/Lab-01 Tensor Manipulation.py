@@ -133,6 +133,9 @@ print('Argmax: ', t.max(dim=0)[1]) #Argmax:  tensor([1, 1])
 print(t.max(dim=1)) #torch.return_types.max(values=tensor([2., 4.]),indices=tensor([1, 1]))
 print(t.max(dim=-1)) #torch.return_types.max(values=tensor([2., 4.]),indices=tensor([1, 1]))
 
+print(argmax(t,dim = 1)) # ->이런식으로 logistic regression에서 많이 사용
+# = t.max(dim = 1)[1]
+
 # from typing_extensions import Concatenate
 # #import
 # import numpy as np
